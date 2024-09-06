@@ -36,6 +36,13 @@ def scan_host(ip_address, output_file="nmap_scan_results.txt"):
                 f.write(f"OS: {os['name']} (Accuracy: {os['accuracy']}%)\n")
         f.write("\n")
         
+        # Get device type
+        if "osclass" in nm[ip_address]:
+            f.write("Device Type:\n")
+            for osclass in nm[ip_address]["osclass"]:
+                f.write(f"Device Type: {osclass['type']} (Accuracy: {osclass['accuracy']}%)\n")
+        f.write("\n")
+        
         # Get Hostnames
         if "hostnames" in nm[ip_address]:
             f.write("Hostnames:\n")
@@ -57,4 +64,3 @@ def scan_host(ip_address, output_file="nmap_scan_results.txt"):
                 f.write(f"Script: {script_id}\n{output}\n\n")
         
         print(f"Scan results saved to {output_file}")
-
