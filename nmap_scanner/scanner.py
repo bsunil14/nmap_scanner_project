@@ -17,7 +17,7 @@ def scan_host(ip_address, output_file="nmap_scan_results.txt"):
     # Open the output file in write mode
     with open(output_file, "w") as f:
         # Write scan summary
-        f.write(f"Nmap Scan Report for {ip_address}\n")
+        f.write(f"Nmap Scan Report for IP ADDRESS: {ip_address}\n")
         f.write("="*50 + "\n")
         
         # Get open ports and services
